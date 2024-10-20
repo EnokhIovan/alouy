@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <style>
+        body {
+            background-color: rgba(30, 30, 30 , 1);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+        }
+        html::-webkit-scrollbar {
+            width: 8px;
+        }
+        html::-webkit-scrollbar-track {
+            background-color: rgba(60, 60, 60, 0.25);
+            border-radius: 12px;
+        }
+        html::-webkit-scrollbar-thumb {
+            background-color: rgb(154, 205, 50);
+            border-radius: 12px;
+        }
+        .header-text {
+            color: rgba(0, 255, 255, 1);
+            text-align: center;
+            font-size: 4.5em;
+            margin: 0;
+            text-shadow: 0 0 4px rgba(0, 255, 255, 1);
+        }
+        .sub-header-text {
+            color: rgb(173, 255, 47);
+            text-align: center;
+            text-shadow: 0 0 2px rgb(173, 255, 47);
+        }
+        .content-box{
+            position: relative;
+            background-color: rgba(60, 60, 60, 0.5);
+            width: 75%;
+            height: 100%;
+            margin: auto;
+            border-radius: 8px;
+            padding: 16px;
+            color: white;
+            margin-bottom: 3em;
+        }
+        .answer-box{
+            position: relative;
+            background-color: rgba(90, 90, 90, 0.5);
+            height: 100%;
+            border-radius: 8px;
+            padding: 8px;
+            font-size: 1.5em;
+            overflow: auto;
+        }
+        .answer-box p {
+            margin: 0;
+        }
+        #ans {
+            color: rgba(0, 255, 255);
+        }
+        .answer-box::-webkit-scrollbar {
+            height: 8px;
+        }
+        .answer-box::-webkit-scrollbar-track {
+            background-color: rgba(60, 60, 60, 0.5);
+            border-radius: 12px;
+        }
+        .answer-box::-webkit-scrollbar-thumb {
+            background-color: rgb(154, 205, 50);
+            border-radius: 12px;
+        }
+    </style>
+    <body>
+        <h1 class="header-text">C++ Exercise</h1>
+        <h3 class="sub-header-text">( Tugas TIK - Henokh Giovan Hananto / XII.TIK.C )</h3>
+        <br>
+        <div class="content-box" id="content_box">
+            <!-- Isi soal dan jawaban berada di <script> -->
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const dataContent = [
+                    {
+                        "question": '1) What preprocessor directive is necessary to use statements with \
+                        the std::cout printing stream object?',
+                        "answer": '#include &lt;iostream&gt;'
+                    },
+                    {
+                        "question": '2) What statement allows the short names cout and endl to be used \
+                        instead of std::cout and std::endl?',
+                        "answer": 'using namespace std;'
+                    },
+                    {
+                        "question": '3) What does the name std stand for?',
+                        "answer": '"Standard"'
+                    },
+                    {
+                        "question": '4) All C++ programs must have a function named what?',
+                        "answer": '\'"main" function\''
+                    },
+                    {
+                        "question": '5) The body of main is enclosed within what symbols?',
+                        "answer": '\'<i>Curly brackets</i> ("{}")\''
+                    },
+                    {
+                        "question": '6) What operator directs information to the std::cout output stream?',
+                        "answer": '\'<<\''
+                    },
+                    {
+                        "question": '7) Write a C++ program that prints your name in the console window.',
+                        "answer": 
+'#include &lt;iostream&gt;\
+\nusing namespace std;\
+\n\
+\nint main(){\
+\n  cout << "Henokh Giovan Hananto" << endl;\
+\n\
+\n  return 0;\
+\n}'
+                    },
+                    {
+                        "question": '8) Write a C++ program that prints your first and last name in the \
+                        console window. Your first nameshould appear on one line, and your last name appear \
+                        on the next line.',
+                        "answer": 
+'#include &lt;iostream&gt;\
+\nusing namespace std;\
+\n\
+\nint main(){\
+\n  cout << "Henokh" << endl;\
+\n  cout << "Giovan" << endl;\
+\n  cout << "Hananto";\
+\n\
+\n  return 0;\
+\n}'
+                    },
+                    {
+                        "question": '9) What other files must you distribute with your executable file so that \
+                        your program will run on aWindows PC without Visual Studio installed?',
+                        "answer": 'Appendix A, Appendix B, Appendix C'
+                    },
+                    {
+                        "question": '10) Can a single statement in C++ span multiple lines in the source code?',
+                        "answer": '"Yes"'
+                    }
+                ];
+
+                const contentBox = document.getElementById('content_box');
+
+                dataContent.forEach((path, index) => {
+                    const question = document.createElement('h1');
+                    question.textContent = path.question;
+
+                    const textAnswer = document.createElement('h2');
+                    textAnswer.textContent = "Answer:";
+                    textAnswer.id = 'ans';
+
+                    const answerBox = document.createElement('div');
+                    answerBox.classList.add('answer-box');
+
+                    const answer = document.createElement('pre');
+                    answer.innerHTML = path.answer;
+
+                    const space = document.createElement('br');
+
+                    answerBox.appendChild(answer);
+                    contentBox.appendChild(question);
+                    contentBox.appendChild(textAnswer);
+                    contentBox.appendChild(answerBox);
+                    contentBox.appendChild(space);
+                })
+            })
+        </script>
+    </body>
+</html>
