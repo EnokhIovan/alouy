@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			#warn {
+				color: red;
+			}
+			#safe {
+				color: green;
+			}
+			#outputNama {
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 style="text-align: center">Masukkan Nama Kamu!</h1>
+		<div class="box">
+		<label>Masukkan nama: </label>
+		<input type="text" id="namaUser">
+		<br>
+		<label>Masukkan warna: </label>
+		<input type="color" id="bgColor">
+		<br>
+		<button onclick="btnClicked()">Enter</button>
+		<br>
+		<p id="outputNama">Nihhhh, kalau kamu sudah masukkan nama, warna, dan sudah klik "Enter", nama dan warna kamu bakal keluar dan tampil di sini...</p>
+		
+		<script>
+			function btnClicked(){
+				if(document.getElementById("namaUser").value == "" || document.getElementById("namaUser").value.length < 3){
+					document.getElementById("outputNama").innerHTML = "<h1><span id='warn'>Waduhhhh, kayaknya kamu masukkin data nya enggak bener dehhhh, coba lagi yang bener!</span></h1>"
+				} else {
+					document.getElementById("outputNama").innerHTML = "<h2><span id='safe'>Halooo " + document.getElementById('namaUser').value + ", selamat datang!</span></h2>";
+				}
+				document.getElementById("outputNama").backgroundColor = "green";
+			}
+		</script>
+	</body>
+</html>
